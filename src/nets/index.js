@@ -39,3 +39,7 @@ axios.interceptors.response.use(
 export async function login(formData) {
   return axios.post("/login", formData);
 }
+
+export async function getUserInfo() {
+  return axios.post("/userinfo");
+}

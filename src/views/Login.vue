@@ -25,6 +25,10 @@ export default {
           type: "success",
           message: "登录成功"
         });
+        const toPath = this.$route.query.redirect || "/dashboard";
+        this.$router.replace({
+          path: toPath
+        });
       } else {
         this.$message({
           type: "warning",
@@ -45,7 +49,7 @@ export default {
 }
 .form-wrap {
   margin: auto;
-  padding: 4em 4em;
+  padding: 2em;
   background-color: #fff;
   border-radius: 10px;
 }

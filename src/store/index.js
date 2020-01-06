@@ -11,9 +11,15 @@ export default new Vuex.Store({
     username: "",
     authRoutes: []
   },
+  getters: {
+    menus(state) {
+      return state.authRoutes.filter(item => item.isMenu);
+    }
+  },
   mutations: {
     mutateUserInfo(state, payload) {
       Object.assign(state, payload);
+      auth.setAuth(payload.authorization);
     }
   },
   actions: {
@@ -23,6 +29,12 @@ export default new Vuex.Store({
         commit("mutateUserInfo", result.data);
       }
       return result;
+    },
+    async getUserInfo({ commit }) {
+      let result = await nets.getUserInfo();
+      if (result.success) {
+        commit("mutateUserInfo", result.data);
+      }
     }
   },
   modules: {}

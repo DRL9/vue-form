@@ -7,8 +7,18 @@ app.use(express.json({}));
 
 const authRoutes = [
   {
-    path: "/meth",
-    name: "",
+    path: "/dashboard",
+    name: "dashboard",
+    isMenu: false
+  },
+  {
+    path: "/dashboard/menu1",
+    name: "menu11",
+    isMenu: true
+  },
+  {
+    path: "/dashboard/menu2",
+    name: "menu2",
     isMenu: true
   }
 ];
